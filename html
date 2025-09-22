@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft UI - Анимированный интерфейс</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="minecraft-bg">
+    <div class="container">
+        <!-- Главное меню -->
+        <header class="main-header" id="mainHeader">
+            <h1 class="title" id="mainTitle">MINECRAFT UI</h1>
+            <div class="subtitle">Анимированный интерфейс</div>
+        </header>
+
+        <!-- Навигация -->
+        <nav class="main-nav" id="mainNav">
+            <button class="nav-btn minecraft-btn" data-section="world">
+                <span class="btn-icon">🌍</span>
+                <span class="btn-text">Мир</span>
+            </button>
+            <button class="nav-btn minecraft-btn" data-section="inventory">
+                <span class="btn-icon">🎒</span>
+                <span class="btn-text">Инвентарь</span>
+            </button>
+            <button class="nav-btn minecraft-btn" data-section="crafting">
+                <span class="btn-icon">⚒️</span>
+                <span class="btn-text">Крафтинг</span>
+            </button>
+            <button class="nav-btn minecraft-btn" data-section="settings">
+                <span class="btn-icon">⚙️</span>
+                <span class="btn-text">Настройки</span>
+            </button>
+        </nav>
+
+        <!-- Контентные секции -->
+        <main class="content-area" id="contentArea">
+            <!-- Секция мира -->
+            <section class="content-section active" id="worldSection">
+                <h2>Выбор мира</h2>
+                <div class="world-grid">
+                    <div class="world-card minecraft-card">
+                        <div class="world-preview"></div>
+                        <h3>Новый мир</h3>
+                        <button class="minecraft-btn small">Играть</button>
+                    </div>
+                    <div class="world-card minecraft-card">
+                        <div class="world-preview"></div>
+                        <h3>Лесной домик</h3>
+                        <button class="minecraft-btn small">Играть</button>
+                    </div>
+                    <div class="world-card minecraft-card">
+                        <div class="world-preview"></div>
+                        <h3>Горная крепость</h3>
+                        <button class="minecraft-btn small">Играть</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция инвентаря -->
+            <section class="content-section" id="inventorySection">
+                <h2>Инвентарь</h2>
+                <div class="inventory-grid">
+                    <!-- Будет заполняться через JS -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Статус бар -->
+        <footer class="status-bar">
+            <div class="health-bar">
+                <div class="hearts">❤️❤️❤️❤️❤️</div>
+            </div>
+            <div class="hunger-bar">
+                <div class="food">🍗🍗🍗🍗</div>
+            </div>
+            <div class="coordinates">
+                X: 123 Y: 64 Z: -456
+            </div>
+        </footer>
+    </div>
+
+    <!-- Модальное окно -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal minecraft-modal">
+            <button class="modal-close minecraft-btn">✕</button>
+            <div class="modal-content">
+                <h3>Добро пожаловать!</h3>
+                <p>Это анимированный интерфейс в стиле Minecraft</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
