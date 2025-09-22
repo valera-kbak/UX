@@ -1,0 +1,152 @@
+/* 1. ЗАМЕДЛЕНИЕ (Easing) */
+.minecraft-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.minecraft-card {
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* 2. СМЕЩЕНИЕ ПО ОСЯМ (Offset & Delay) */
+.main-nav .nav-btn:nth-child(1) { transition-delay: 0.1s; }
+.main-nav .nav-btn:nth-child(2) { transition-delay: 0.2s; }
+.main-nav .nav-btn:nth-child(3) { transition-delay: 0.3s; }
+.main-nav .nav-btn:nth-child(4) { transition-delay: 0.4s; }
+
+.world-grid .world-card:nth-child(1) { transition-delay: 0.1s; }
+.world-grid .world-card:nth-child(2) { transition-delay: 0.2s; }
+.world-grid .world-card:nth-child(3) { transition-delay: 0.3s; }
+
+/* 3. НАСЛЕДОВАНИЕ (Parenting) */
+.nav-btn:hover .btn-icon {
+    transform: scale(1.2) rotate(5deg);
+    transition: transform 0.3s ease;
+}
+
+.nav-btn:hover .btn-text {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+}
+
+/* 4. ИЗМЕНЕНИЕ ЗНАЧЕНИЯ (Value Change) */
+.minecraft-modal {
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.modal-overlay {
+    transition: opacity 0.3s ease;
+}
+
+/* 5. МАСКИРОВАНИЕ (Masking) */
+.content-section {
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* 6. ПРЕОБРАЗОВАНИЕ (Transformation) */
+.inventory-slot:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* 7. КОНТЕКСТ УСТРОЙСТВА (Device Context) */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Ключевые кадры анимаций */
+@keyframes blockBreak {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(0.8) rotate(10deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes itemPickup {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.2); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes titleGlow {
+    0%, 100% { text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; }
+    50% { text-shadow: 3px 3px 10px #FFD700, -1px -1px 10px #FFD700, 1px -1px 10px #FFD700, -1px 1px 10px #FFD700; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) rotateX(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) rotateX(-15deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotateX(0);
+    }
+}
+
+/* Применение анимаций */
+.title {
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+.nav-btn {
+    animation: slideIn 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.minecraft-modal {
+    animation: modalAppear 0.4s ease-out forwards;
+}
+
+/* Анимации для интерактивных элементов */
+.block-break {
+    animation: blockBreak 0.3s ease;
+}
+
+.item-pickup {
+    animation: itemPickup 0.4s ease;
+}
+
+/* Эффекты hover с 3D перспективой */
+.nav-btn, .world-card, .inventory-slot {
+    transform: perspective(1000px) rotateX(0) rotateY(0);
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    transform: perspective(1000px) rotateX(-5deg) translateY(-2px);
+}
+
+.world-card:hover {
+    transform: perspective(1000px) rotateY(5deg) translateY(-3px);
+}
+
+.inventory-slot:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.05);
+}
+
+/* Анимация появления контента */
+.content-section.active {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+/* Анимация здоровья */
+.heart {
+    transition: all 0.3s ease;
+}
+
+.heart.lost {
+    opacity: 0.3;
+    transform: scale(0.8);
+}
